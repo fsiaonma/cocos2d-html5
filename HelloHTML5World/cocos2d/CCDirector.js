@@ -209,6 +209,7 @@ cc.Director = cc.Class.extend(/** @lends cc.Director# */{
      * @return {Boolean}
      */
     init:function () {
+
         // scenes
         this._oldAnimationInterval = this._animationInterval = 1.0 / cc.defaultFPS;
         this._scenesStack = [];
@@ -216,14 +217,12 @@ cc.Director = cc.Class.extend(/** @lends cc.Director# */{
         this._projection = cc.DIRECTOR_PROJECTION_DEFAULT;
         // projection delegate if "Custom" projection is used
         this._projectionDelegate = null;
-
         //FPS
         this._accumDt = 0;
         this._frameRate = 0;
         this._displayStats = false;//can remove
         this._totalFrames = this._frames = 0;
         this._lastUpdate = Date.now();
-
         //Paused?
         this._paused = false;
 
@@ -231,7 +230,6 @@ cc.Director = cc.Class.extend(/** @lends cc.Director# */{
         this._purgeDirecotorInNextLoop = false;
 
         this._winSizeInPoints = cc.size(0, 0);
-
         this._openGLView = null;
         this._contentScaleFactor = 1.0;
 
@@ -243,17 +241,16 @@ cc.Director = cc.Class.extend(/** @lends cc.Director# */{
         //touchDispatcher
         this._touchDispatcher = new cc.TouchDispatcher();
         this._touchDispatcher.init();
-
         //KeyboardDispatcher
-        this._keyboardDispatcher = cc.KeyboardDispatcher.getInstance();
+        if (!isXC) {
+            this._keyboardDispatcher = cc.KeyboardDispatcher.getInstance();
+        }
 
         //accelerometer
         this._accelerometer = new cc.Accelerometer();
-
         //MouseDispatcher
         this._mouseDispatcher = new cc.MouseDispatcher();
         this._mouseDispatcher.init();
-
         return true;
     },
 

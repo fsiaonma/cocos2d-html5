@@ -171,7 +171,6 @@ cc.LabelTTFCanvas = cc.Sprite.extend(/** @lends cc.LabelTTFCanvas# */{
             hAlignment = cc.TEXT_ALIGNMENT_LEFT;
             vAlignment = cc.VERTICAL_TEXT_ALIGNMENT_BOTTOM;
         }
-
         if (cc.Sprite.prototype.init.call(this)) {
             this._opacityModifyRGB = false;
             this._dimensions = cc.size(dimensions.width, dimensions.height);
@@ -180,11 +179,14 @@ cc.LabelTTFCanvas = cc.Sprite.extend(/** @lends cc.LabelTTFCanvas# */{
             this._vAlignment = vAlignment;
             this._fontSize = fontSize * cc.CONTENT_SCALE_FACTOR();
             this._fontStyleStr = this._fontSize + "px '" + this._fontName + "'";
-            this._fontClientHeight = cc.LabelTTF.__getFontHeightByDiv(this._fontName,this._fontSize);
+            if(isXC) {
+                this._fontClientHeight = fontSize + 5;
+            } else {
+                this._fontClientHeight = cc.LabelTTF.__getFontHeightByDiv(this._fontName,this._fontSize);
+            }
             this.setString(strInfo);
             return true;
         }
-
         return false;
     },
     /// ---- common properties end      ----
@@ -397,8 +399,9 @@ cc.LabelTTFCanvas._textBaseline = ["top", "middle", "bottom"];
  */
 cc.LabelTTFCanvas.create = function (/* Multi arguments */) {
     var ret = new cc.LabelTTFCanvas();
-    if (ret.initWithString(arguments))
+    if (ret.initWithString(arguments)) {
         return ret;
+    }
     return null;
 };
 

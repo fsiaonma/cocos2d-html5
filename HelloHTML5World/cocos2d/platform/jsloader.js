@@ -211,17 +211,20 @@
     }
     else {
         que.forEach(function (f, i) {
-            var s = d.createElement('script');
-            s.async = false;
-            s.src = f;
-            s.onload = function () {
-                loaded++;
-                p = loaded / que.length;
-                //TODO: code for updating progress bar
-            };
-            d.body.appendChild(s);
-            que[i] = s;
-
+            if (isXC) {
+                require(f);
+            } else {
+                var s = d.createElement('script');
+                s.async = false;
+                s.src = f;
+                s.onload = function () {
+                    loaded++;
+                    p = loaded / que.length;
+                    //TODO: code for updating progress bar
+                };
+                d.body.appendChild(s);
+                que[i] = s;
+            }
         });
     }
 })();

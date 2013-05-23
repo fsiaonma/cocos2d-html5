@@ -301,15 +301,22 @@ cc.TextureCacheCanvas = cc.Class.extend(/** @lends cc.TextureCacheCanvas# */{
             texture.crossOrigin = "Anonymous";
 
             var that = this;
-            texture.addEventListener("load", function () {
-                cc.Loader.getInstance().onResLoaded();
-            });
-            texture.addEventListener("error", function () {
-                cc.Loader.getInstance().onResLoadingErr(path);
-                //remove from cache
-                if (that._textures.hasOwnProperty(path))
-                    delete that._textures[path];
-            });
+
+            if (isXC) {
+                texture.onload = function () {
+                    cc.Loader.getInstance().onResLoaded();
+                }
+            } else {
+                texture.addEventListener("load", function () {
+                    cc.Loader.getInstance().onResLoaded();
+                });
+                texture.addEventListener("error", function () {
+                    cc.Loader.getInstance().onResLoadingErr(path);
+                    //remove from cache
+                    if (that._textures.hasOwnProperty(path))
+                        delete that._textures[path];
+                });
+            }
             texture.src = path;
             this._textures[path] = texture;
         }

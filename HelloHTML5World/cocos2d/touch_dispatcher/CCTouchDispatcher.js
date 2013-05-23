@@ -607,7 +607,7 @@ cc.getHTMLElementPosition = function (element) {
             };
         }
     }
-    return {
+    return isXC ? box : {
         left:box.left + win.pageXOffset - docElem.clientLeft,
         top:box.top + win.pageYOffset - docElem.clientTop,
         width:box.width,
@@ -648,7 +648,7 @@ cc.ProcessMouseupEvent = function (element, event) {
 cc.TouchDispatcher.registerHtmlElementEvent = function (element) {
     if (cc.TouchDispatcher.isRegisterEvent) return;
 
-    if (!cc.Browser.isMobile) {
+    if (!cc.Browser.isMobile && !isXC) {
         window.addEventListener('mousedown', function (event) {
             cc.Director.getInstance().getTouchDispatcher()._setMousePressed(true);
         });
@@ -778,7 +778,6 @@ cc.TouchDispatcher.registerHtmlElementEvent = function (element) {
         }
     }
     else {
-
         //register canvas touch event
         element.addEventListener("touchstart", function (event) {
             if (!event.changedTouches) return;
@@ -786,8 +785,13 @@ cc.TouchDispatcher.registerHtmlElementEvent = function (element) {
             var posArr = [];
             var pos = cc.getHTMLElementPosition(element);
 
-            pos.left -= document.body.scrollLeft;
-            pos.top -= document.body.scrollTop;
+            if (isXC) {
+                pos.left = 0;
+                pos.top = 0;
+            } else {
+                pos.left -= document.body.scrollLeft;
+                pos.top -= document.body.scrollTop;
+            }
 
             var touch_event, tx, ty, touch, preLocation;
             var length = event.changedTouches.length;
@@ -796,8 +800,9 @@ cc.TouchDispatcher.registerHtmlElementEvent = function (element) {
                 //tx = touch_event.pageX;
                 //ty = touch_event.pageY;
                 if (touch_event) {
-                    tx = touch_event.clientX;
-                    ty = touch_event.clientY;
+
+                    tx = isXC? touch_event.pageX : touch_event.clientX;
+                    ty = isXC? touch_event.pageY : touch_event.clientY;
 
                     var location = cc.EGLView.getInstance().convertToLocationInView(tx, ty, pos);
                     touch = null;
@@ -829,8 +834,13 @@ cc.TouchDispatcher.registerHtmlElementEvent = function (element) {
             var posArr = [];
             var pos = cc.getHTMLElementPosition(element);
 
-            pos.left -= document.body.scrollLeft;
-            pos.top -= document.body.scrollTop;
+            if (isXC) {
+                pos.left = 0;
+                pos.top = 0;
+            } else {
+                pos.left -= document.body.scrollLeft;
+                pos.top -= document.body.scrollTop;
+            }
 
             var touch_event, tx, ty, touch, preLocation;
             var length = event.changedTouches.length;
@@ -839,8 +849,8 @@ cc.TouchDispatcher.registerHtmlElementEvent = function (element) {
                 //tx = touch_event.pageX;
                 //ty = touch_event.pageY;
                 if (touch_event) {
-                    tx = touch_event.clientX;
-                    ty = touch_event.clientY;
+                    tx = isXC? touch_event.pageX : touch_event.clientX;
+                    ty = isXC? touch_event.pageY : touch_event.clientY;
 
                     var location = cc.EGLView.getInstance().convertToLocationInView(tx, ty, pos);
 
@@ -873,8 +883,13 @@ cc.TouchDispatcher.registerHtmlElementEvent = function (element) {
             var posArr = [];
             var pos = cc.getHTMLElementPosition(element);
 
-            pos.left -= document.body.scrollLeft;
-            pos.top -= document.body.scrollTop;
+            if (isXC) {
+                pos.left = 0;
+                pos.top = 0;
+            } else {
+                pos.left -= document.body.scrollLeft;
+                pos.top -= document.body.scrollTop;
+            }
 
             var touch_event, tx, ty, touch, preLocation;
             var length = event.changedTouches.length;
@@ -883,8 +898,8 @@ cc.TouchDispatcher.registerHtmlElementEvent = function (element) {
                 //tx = touch_event.pageX;
                 //ty = touch_event.pageY;
                 if (touch_event) {
-                    tx = touch_event.clientX;
-                    ty = touch_event.clientY;
+                    tx = isXC? touch_event.pageX : touch_event.clientX;
+                    ty = isXC? touch_event.pageY : touch_event.clientY;
 
                     var location = cc.EGLView.getInstance().convertToLocationInView(tx, ty, pos);
 
@@ -917,8 +932,13 @@ cc.TouchDispatcher.registerHtmlElementEvent = function (element) {
             var posArr = [];
             var pos = cc.getHTMLElementPosition(element);
 
-            pos.left -= document.body.scrollLeft;
-            pos.top -= document.body.scrollTop;
+            if (isXC) {
+                pos.left = 0;
+                pos.top = 0;
+            } else {
+                pos.left -= document.body.scrollLeft;
+                pos.top -= document.body.scrollTop;
+            }
 
             var touch_event, tx, ty, touch, preLocation;
             var length = event.changedTouches.length;
@@ -927,8 +947,8 @@ cc.TouchDispatcher.registerHtmlElementEvent = function (element) {
                 //tx = touch_event.pageX;
                 //ty = touch_event.pageY;
                 if (touch_event) {
-                    tx = touch_event.clientX;
-                    ty = touch_event.clientY;
+                    tx = isXC? touch_event.pageX : touch_event.clientX;
+                    ty = isXC? touch_event.pageY : touch_event.clientY;
 
                     var location = cc.EGLView.getInstance().convertToLocationInView(tx, ty, pos);
 

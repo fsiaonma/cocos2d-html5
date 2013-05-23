@@ -47,6 +47,7 @@ var Helloworld = cc.Layer.extend({
     helloLabel:null,
     circle:null,
     sprite:null,
+    pause:false,
 
     init:function () {
         var selfPointer = this;
@@ -65,14 +66,21 @@ var Helloworld = cc.Layer.extend({
             "res/CloseNormal.png",
             "res/CloseSelected.png",
             function () {
-                history.go(-1);
+                selfPointer.pause = !selfPointer.pause;
+                if(selfPointer.pause) {
+                    cc.Director.getInstance().pause();
+                }
+                else {
+                    cc.Director.getInstance().resume();
+                }
             },this);
         closeItem.setAnchorPoint(cc.p(0.5, 0.5));
+        closeItem.setScale(2);
 
         var menu = cc.Menu.create(closeItem);
         menu.setPosition(cc.PointZero());
         this.addChild(menu, 1);
-        closeItem.setPosition(cc.p(size.width - 20, 20));
+        closeItem.setPosition(cc.p(size.width - 40, 40));
 
         /////////////////////////////
         // 3. add your codes below...
@@ -96,9 +104,10 @@ var Helloworld = cc.Layer.extend({
         lazyLayer.addChild(this.sprite, 0);
 
         var rotateToA = cc.RotateTo.create(2, 0);
-        var scaleToA = cc.ScaleTo.create(2, 1, 1);
-
-        this.sprite.runAction(cc.Sequence.create(rotateToA, scaleToA));
+        var EaseRotateTo = cc.EaseElasticInOut.create(rotateToA, 0.3);
+        var scaleToA = cc.ScaleTo.create(2, size.width / this.sprite._rect.size.width, size.height / this.sprite._rect.size.height);
+        var EaseScaleTo = cc.EaseElasticInOut.create(scaleToA, 0.3);
+        this.sprite.runAction(cc.Sequence.create(EaseRotateTo, EaseScaleTo));
 
         this.circle = new CircleSprite();
         this.circle.setPosition(cc.p(40, size.height - 60));
