@@ -192,7 +192,7 @@ cc.NodeWebGL = cc.Class.extend(/** @lends cc.NodeWebGL# */{
     _arrayMakeObjectsPerformSelector:function (array, callbackType) {
         if (!array || array.length == 0)
             return;
-
+        
         var i;
         switch (callbackType) {
             case cc.Node.StateCallbackType.onEnter:
@@ -1797,6 +1797,7 @@ cc.NodeCanvas = cc.Class.extend(/** @lends cc.NodeCanvas# */{
      * @private
      */
     _arrayMakeObjectsPerformSelector:function (array, callbackType) {
+
         if (!array || array.length == 0)
             return;
 
@@ -2578,10 +2579,8 @@ cc.NodeCanvas = cc.Class.extend(/** @lends cc.NodeCanvas# */{
         // its scheduledSelectors_ dict will not get released!
         if (doCleanup)
             child.cleanup();
-
         // set parent nil at the end
         child.setParent(null);
-
         cc.ArrayRemoveObject(this._children, child);
     },
 

@@ -242,7 +242,7 @@ cc.Layer = cc.Node.extend(/** @lends cc.Layer# */{
      * @param {Boolean} enabled
      */
     setKeyboardEnabled:function (enabled) {
-        if (enabled !== this._isKeyboardEnabled) {
+        if (enabled !== this._isKeyboardEnabled && !isXC) {
             this._isKeyboardEnabled = enabled;
             if (this._running) {
                 var director = cc.Director.getInstance();
