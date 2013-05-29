@@ -26,6 +26,7 @@
  ****************************************************************************/
 (function () {
     var engine = [
+        'XC-Adapter.js',
         'platform/CCClass.js',
         'platform/miniFramework.js',
         'platform/CCCommon.js',
@@ -135,7 +136,7 @@
         'tileMap_parallax_nodes/CCTMXLayer.js',
         'tileMap_parallax_nodes/CCParallaxNode.js',
         'base_nodes/CCdomNode.js',
-        '../CocosDenshion/SimpleAudioEngine.js'
+        'CocosDenshion/SimpleAudioEngine.js'
     ];
 
     var d = document;
