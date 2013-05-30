@@ -27,6 +27,8 @@
 var cocos2dApp = cc.Application.extend({
     config:document['ccConfig'],
     ctor:function (scene) {
+
+        console.log('finififififi');
         this._super();
         this.startScene = scene;
         cc.COCOS2D_DEBUG = this.config['COCOS2D_DEBUG'];
@@ -51,7 +53,6 @@ var cocos2dApp = cc.Application.extend({
 
         // set FPS. the default value is 1.0/60 if you don't call this
         director.setAnimationInterval(1.0 / this.config['frameRate']);
-
         //load resources
         cc.LoaderScene.preload(g_ressources, function () {
             director.replaceScene(new this.startScene());
@@ -60,4 +61,5 @@ var cocos2dApp = cc.Application.extend({
         return true;
     }
 });
+
 var myApp = new cocos2dApp(HelloWorldScene);

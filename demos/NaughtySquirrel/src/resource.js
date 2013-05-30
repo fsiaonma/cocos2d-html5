@@ -12,38 +12,18 @@ var P_TILE_8 = 'res/tile_8.jpg';
 var P_TILE_9 = 'res/tile_9.jpg';
 var P_TILE_10 = 'res/tile_10.jpg';
 var P_TILE_11 = 'res/tile_11.jpg';
-var P_TILE_12 = 'res/tile_12.png';
-
-var P_BACKGROUND_1 = 'res/background_1.png';
-var P_BACKGROUND_2 = 'res/background_2.png';
 
 var P_CHARACTER1 = 'res/runner1.png';
 var P_CHARACTER2 = 'res/runner2.png';
 var P_CHARACTER3 = 'res/runner3.png';
 
-var P_LIGHT_POINT_1 = 'res/light_point1.png'; 
-var P_LIGHT_POINT_2 = 'res/light_point2.png'; 
-var P_LIGHT_POINT_3 = 'res/light_point3.png'; 
-var P_LIGHT_POINT_4 = 'res/light_point4.png'; 
-
 var P_SHADOW = 'res/shadow.png';
-
-var P_CLOUD_1 = 'res/cloud_1.png';
-var P_CLOUD_2 = 'res/cloud_2.png';
-var P_CLOUD_3 = 'res/cloud_3.png';
-var P_CLOUD_4 = 'res/cloud_4.png';
 
 var P_INNER_RED = 'res/JumpPrints/inner_red.png';
 var P_INNER_YELLOW = 'res/JumpPrints/inner_yellow.png';
 var P_INNER_WHITE = 'res/JumpPrints/inner_white.png';
 var P_OUTER_WHITE = 'res/JumpPrints/outer_white.png';
 var P_OUTER_PURPLE = 'res/JumpPrints/outer_purple.png';
-
-var P_FOOTPRINT_1 = 'res/footprint_1.png';
-var P_FOOTPRINT_2 = 'res/footprint_2.png';
-var P_FOOTPRINT_3 = 'res/footprint_3.png';
-var P_FOOTPRINT_4 = 'res/footprint_4.png';
-var P_FOOTPRINT_5 = 'res/footprint_5.png';
 
 var P_COIN = 'res/beans.png';
 var P_DOUBLE_COIN = 'res/beans_red.png';
@@ -76,15 +56,8 @@ var P_DISTANCE = 'res/distance.png';
 var P_NUMBERS = 'res/numbers.png'; 
 var P_ABOUT_PAGE = 'res/about_page.png';
 
-var s_HelloWorld = "res/HelloWorld.png";
-var s_CloseNormal = "res/CloseNormal.png";
-var s_CloseSelected = "res/CloseSelected.png";
-
 var g_ressources = [
     //image
-    {src:s_HelloWorld},
-    {src:s_CloseNormal},
-    {src:s_CloseSelected},
 
     { type: 'image', src: P_LOGO },
     { type: 'image', src: P_MENU },
@@ -100,41 +73,21 @@ var g_ressources = [
     { type: 'image', src: P_TILE_9 },
     { type: 'image', src: P_TILE_10 },
     { type: 'image', src: P_TILE_11 },
-    { type: 'image', src: P_TILE_12 },
-
-    { type: 'image', src: P_BACKGROUND_1 },
-    { type: 'image', src: P_BACKGROUND_2 },
 
     { type: 'image', src: P_CHARACTER1 },
     { type: 'image', src: P_CHARACTER2 },
     { type: 'image', src: P_CHARACTER3 },
-
-    { type: 'image', src: P_LIGHT_POINT_1 },
-    { type: 'image', src: P_LIGHT_POINT_2 },
-    { type: 'image', src: P_LIGHT_POINT_3 },
-    { type: 'image', src: P_LIGHT_POINT_4 },
 
     { type: 'image', src: P_HP_UP },
     { type: 'image', src: P_HP_DOWN },
 
     { type: 'image', src: P_SHADOW },
 
-    { type: 'image', src: P_CLOUD_1 },
-    { type: 'image', src: P_CLOUD_2 },
-    { type: 'image', src: P_CLOUD_3 },
-    { type: 'image', src: P_CLOUD_4 },
-
     { type: 'image', src: P_INNER_RED },
     { type: 'image', src: P_INNER_YELLOW },
     { type: 'image', src: P_INNER_WHITE },
     { type: 'image', src: P_OUTER_WHITE },
     { type: 'image', src: P_OUTER_PURPLE },
-
-    { type: 'image', src: P_FOOTPRINT_1 },
-    { type: 'image', src: P_FOOTPRINT_2 },
-    { type: 'image', src: P_FOOTPRINT_3 },
-    { type: 'image', src: P_FOOTPRINT_4 },
-    { type: 'image', src: P_FOOTPRINT_5 },
 
     { type: 'image', src: P_COIN },
     { type: 'image', src: P_DOUBLE_COIN },

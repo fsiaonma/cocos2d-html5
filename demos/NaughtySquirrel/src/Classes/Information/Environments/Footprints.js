@@ -3,7 +3,7 @@ var Footprints = cc.Layer.extend({
 
   FOOT_PRINTS_TAG_OFFSET: 100000,
   FOOT_PRINTS_DURATION: 0,
-  footprints: [P_FOOTPRINT_1, P_FOOTPRINT_2, P_FOOTPRINT_3, P_FOOTPRINT_4, P_FOOTPRINT_5],
+  // footprints: [P_FOOTPRINT_1, P_FOOTPRINT_2, P_FOOTPRINT_3, P_FOOTPRINT_4, P_FOOTPRINT_5],
   innerPrint: null,
   innerPatternLight: null,
   outerPrint: null,
