@@ -723,7 +723,6 @@ cc.Director = cc.Class.extend(/** @lends cc.Director# */{
      */
     setNextScene:function () {
         var runningIsTransition = this._runningScene ? this._runningScene instanceof cc.TransitionScene : false;
-
         var newIsTransition = this._nextScene ? this._nextScene instanceof cc.TransitionScene : false;
 
         // If it is not a transition, call onExit/cleanup
@@ -735,10 +734,11 @@ cc.Director = cc.Class.extend(/** @lends cc.Director# */{
 
             // issue #709. the root node (scene) should receive the cleanup message too
             // otherwise it might be leaked.
-            if (this._sendCleanupToScene && this._runningScene)
+            if (this._sendCleanupToScene && this._runningScene) {
                 this._runningScene.cleanup();
+            }
+                
         }
-
         this._runningScene = this._nextScene;
 
         this._nextScene = null;

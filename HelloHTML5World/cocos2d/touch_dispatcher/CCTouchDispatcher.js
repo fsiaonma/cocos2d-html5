@@ -408,7 +408,7 @@ cc.TouchDispatcher = cc.Class.extend(/** @lends cc.TouchDispatcher# */ {
                         break;
                     case cc.TOUCH_MOVED:
                         if (mutableTouches.length > 0) {
-                            if (cc.Browser.isMobile) {
+                            if (cc.Browser.isMobile || isXC) {
                                 if (handler.getDelegate().onTouchesMoved) handler.getDelegate().onTouchesMoved(mutableTouches, event);
                             } else {
                                 if (this._mousePressed) if (handler.getDelegate().onTouchesMoved) handler.getDelegate().onTouchesMoved(mutableTouches, event);

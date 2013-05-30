@@ -26,6 +26,7 @@
  ****************************************************************************/
 (function () {
     var engine = [
+        'XC-Adapter.js',
         'platform/CCClass.js',
         'platform/miniFramework.js',
         'platform/CCCommon.js',
@@ -135,7 +136,7 @@
         'tileMap_parallax_nodes/CCTMXLayer.js',
         'tileMap_parallax_nodes/CCParallaxNode.js',
         'base_nodes/CCdomNode.js',
-        '../CocosDenshion/SimpleAudioEngine.js'
+        'CocosDenshion/SimpleAudioEngine.js'
     ];
 
     var d = document;
@@ -191,7 +192,6 @@
 
     var loaded = 0;
     var que = engine.concat(c.appFiles);
-    que.push('main.js');
     if (navigator.userAgent.indexOf("Trident/5") > -1) {
         //ie9
         this.serial = -1;
@@ -208,8 +208,7 @@
             }
         };
         loadNext();
-    }
-    else {
+    } else {
         que.forEach(function (f, i) {
             if (isXC) {
                 require(f);

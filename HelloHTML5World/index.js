@@ -1,6 +1,12 @@
-require("sugarXC.js");
+require("cocos2d/XC-Adapter.js");
 
 (function () {
+    if(isXC) {
+        XCanvas = new Canvas();
+        XCanvas.id = 'gameCanvas';
+        XCanvas.tagName = "CANVAS";
+    }
+
     var d = document;
     var c = {
         COCOS2D_DEBUG:2,
@@ -14,7 +20,8 @@ require("sugarXC.js");
         engineDir:'./cocos2d/',
         appFiles:[
             'src/resource.js',
-            'src/myApp.js'
+            'src/myApp.js',
+            'main.js'
         ]
     };
 
@@ -23,7 +30,7 @@ require("sugarXC.js");
     if (c.SingleEngineFile && !c.engineDir) {
         require(c.SingleEngineFile, "cocos2d-html5");
     } else if (c.engineDir && !c.SingleEngineFile) {
-        require(c.engineDir + "platform/jsloader.js");
+        require(c.engineDir + "jsloader.js");
     } else {
         alert('You must specify either the single engine file OR the engine directory in "cocos2d.js"');
     }

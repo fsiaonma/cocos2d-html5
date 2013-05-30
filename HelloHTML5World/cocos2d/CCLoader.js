@@ -416,7 +416,9 @@ cc.LoaderScene = cc.Scene.extend(/** @lends cc.LoaderScene# */{
         this._logoTexture.width = 160;
         this._logoTexture.height = 200;
         // this._logoTexture.onload = function() {
-        _this.initStage();
+        setTimeout(function() {
+            _this.initStage();
+        }, 1000);
         // }
     },
 
