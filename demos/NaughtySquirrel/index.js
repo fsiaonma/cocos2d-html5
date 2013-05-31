@@ -1,4 +1,4 @@
-require("cocos2d/XC-Adapter.js");
+require("./cocos2d_pro/XC-Adapter.js");
 
 var XCanvas;
 
@@ -35,7 +35,7 @@ var STANDARD_SIZE;
         loadExtension:false,
         renderMode:1,
         tag:'gameCanvas',
-        engineDir:'./cocos2d/',
+        engineDir:'./cocos2d_pro/',
         appFiles:[
             'src/resource.js',
             'src/Classes/AppDelegate.js',

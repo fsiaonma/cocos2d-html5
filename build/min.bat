@@ -1,6 +1,7 @@
 @echo off
 
-node ./min.js ../cocos2d -output ./cocos2d.min.js
+node ./min.js
 
 echo "build success!!"
+
 pause & exit

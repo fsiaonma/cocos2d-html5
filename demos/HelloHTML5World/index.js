@@ -1,4 +1,4 @@
-require("cocos2d/XC-Adapter.js");
+require("./cocos2d_pro/XC-Adapter.js");
 
 (function () {
     if(isXC) {
@@ -17,11 +17,11 @@ require("cocos2d/XC-Adapter.js");
         loadExtension:false,
         renderMode:0,
         tag:'gameCanvas',
-        engineDir:'./cocos2d/',
+        engineDir:'./cocos2d_pro/',
         appFiles:[
-            'src/resource.js',
-            'src/myApp.js',
-            'main.js'
+            './src/resource.js',
+            './src/HelloWorldScene.js',
+            './src/main.js'
         ]
     };
 
