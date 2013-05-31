@@ -200,6 +200,7 @@ function compression(fileIn, fileOut) {
         var origCode = "";
         var ast = "";
         for (var i = 0,len = fileIn.length; i < len; i++) {
+            console.log(fileIn[i]);
             origCode = fs.readFileSync(fileIn[i], 'utf8');
             ast = jsp.parse(origCode); 
             ast = pro.ast_mangle(ast); 
@@ -210,19 +211,19 @@ function compression(fileIn, fileOut) {
     fs.writeFileSync(fileOut, finalCode.join(''), 'utf8');
 }
 
-console.log(cocos2dFiles);
+// console.log(cocos2dFiles);
 compression(cocos2dFiles, output.cocos2d);
 
-console.log(extensionsFiles);
+// console.log(extensionsFiles);
 compression(extensionsFiles, output.extensions);
 
-console.log(box2dFiles);
+// console.log(box2dFiles);
 compression(box2dFiles, output.box2d);
 
-console.log(chipmunkFiles);
+// console.log(chipmunkFiles);
 compression(chipmunkFiles, output.chipmunk);
 
-console.log(XCAdapterFiles);
+// console.log(XCAdapterFiles);
 compression(XCAdapterFiles, output.XCAdapter);
 
 
